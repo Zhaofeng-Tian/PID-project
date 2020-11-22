@@ -6,12 +6,13 @@ Self-Driving Car Engineer Nanodegree Program
 
 * Goal: to programme your own PID comtroller to adjust the throttle value and the steering angle of the vehicle built in unreal engine to maintain the vehicle speed and keep it in lane.
 
-* Implemention: By change the codes in the src file written in C++.![Total Speed Error](Pictures/Total_Speed_Error)
+* Implemention: 
+  * Firstly, add the speed PID controller on the previous steering controller. Need to create new function. Then we can use throttle value to control the speed.![Total Speed Error](Pictures/Total_Speed_Error.png) ![Throttle Value](Pictures/Throttle_Value.png)
 
-
+  * Initiate the parameters of both speed controller and steering controller, here are my selected parameters.![PID parameters](Pictures/PID_Parameters.png)
 
 ## Project Result and Analysis
-* I set my despired speed as 50 mph. Then I ran the simulation, the controller worked very well, performing with enough robustness.![Simulation](Pictures/Vehicle)
+* I set my despired speed as 50 mph. Then I ran the simulation, the controller worked very well, performing with enough robustness.![Simulation](Pictures/Vehicle.png)
 
 ## Dependencies
 
