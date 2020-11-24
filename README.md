@@ -9,6 +9,16 @@ Self-Driving Car Engineer Nanodegree Program
 * Implemention: 
   * Firstly, add the speed PID controller on the previous steering controller. Need to create new function. Then we can use throttle value to control the speed.![Total Speed Error](Pictures/Total_Speed_Error.png) ![Throttle Value](Pictures/Throttle_Value.png)
 
+  * Parameters trade-off: When select a higner Kp, the system could response faster but with bigger overshoot and oscillation.  Usually, select an Ki to eliminate steady state error. Using Kd to reduce overshoot. I tune the PID controller mannually. For steering system, increasing each parameters could affect the system performance in the way shown below.
+
+    | Parameter  | Overshoot  | Rise Time  | Settling Time   | Steadystate error  |
+    |---|---|---|---|---|
+    | Kp  | Increase  | Decrease | Small change  | Increase  |
+    | Ki  | Decrease  | Increase  | Increase  | Decrease  |
+    | Kd  | Decrease  | Decrease  | Decrease  | No change  |
+
+  * Parameters Selection: After manual tunning I found that increasing Kd over 0.1 could cause strong oscillation, so I did not use the Kd. To find an appropriate Kp, I started tunning with Kp=1 and decrease the value to decrease osillation and settling time. Also, I increased Ki with 0.1 as unit from 0 to check the system performance. I found when Ki= 0.95, system worked well. So the final parameters of steering system are selected as Kp = 0.11; Kd = 0; Ki = 0.95. The method to tune speed controller is same. 
+
   * Initiate the parameters of both speed controller and steering controller, here are my selected parameters.![PID parameters](Pictures/PID_Parameters.png)
 
 ## Project Result and Analysis
